@@ -3,6 +3,14 @@
             padding: 0;
             margin: 0;
         }
+
+        @keyframes requestButton{
+            100%{transform: scale(1.1);
+                filter: drop-shadow(1px 5px 5px rgba(211, 74, 10, 0.494));}
+            
+        }
+
+
  
         .page-home {
 
@@ -73,7 +81,7 @@
                         width: 80%;
             
                     }
-    
+                    
     
                     .login-google {
                         background-color: #E55015;
@@ -87,9 +95,7 @@
                         cursor: pointer;
                         margin: 15px;
                         text-decoration: none;
-                   
-                       
-                        
+                        border: none;    
                     }
                     
                     .login-google img{
@@ -98,6 +104,21 @@
                         padding-left: 10px;
                    
                       
+                    }
+
+                    a{  
+                        position:relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-decoration: none;
+                        color: #ff743e;
+                        background-color: white;
+                        font-weight: 700;
+                        filter: drop-shadow(1px 1px 5px rgba(211, 74, 10, 0.494));
+                        animation: requestButton  0.5s ease-in-out infinite alternate;
+                        width: 90%;
+                        height: 50px;
                     }
                 }
             }

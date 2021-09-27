@@ -1,10 +1,9 @@
-import React, { useContext, useState } from "react"
+import React from "react"
 import "../styles/Home.scss"
 import Logo from "../assets/images/logo.svg"
 import FoodSvg from "../assets/images/Food_Memes.svg"
 
 import Google from "../assets/images/google-icon.svg"
-import {useRouteMatch} from 'react-router-dom'
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
 

@@ -16,12 +16,16 @@ export function Cart() {
                     <div className="card card-cart">
                         <img src={Logo} />
 
-                        <div className= "request-description-card">
+                        <div className="request-description-card">
                             <div>Combo Completo</div>
                             <div>Valor: R$50.00</div>
-                           
+
                         </div>
-                        <button>Confirmar pedido</button>
+                        <div className="buttons-request">
+                            <button>CONFIRMAR PEDIDO</button>
+                            <button>CANCELAR PEDIDO</button>
+                        </div>
+
                     </div>
 
 

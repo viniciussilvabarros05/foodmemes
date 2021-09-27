@@ -3,6 +3,8 @@
     padding-bottom: 100px;
     .list{
         background-color: rgb(255, 255, 255);
+        box-shadow: 5px 30px 20px 5px rgba(225, 122, 13, 0.3);
+        border-radius: 15px;
         padding: 20px;
 
 
@@ -24,11 +26,8 @@
         }
 
         .card-cart{
-            display: flex;
-            justify-content: flex-start;
- 
-            flex-direction: row;
-            gap: 15px;
+            display: grid;
+            grid-gap:15px;
             cursor: default;
             width: 90%;
             height: 100px;
@@ -37,27 +36,64 @@
 
             border: none;
             filter: drop-shadow(0 10px 10px rgba(242, 126, 18, 0.254));
+            grid-template-areas: "img description button";
 
+            grid-template-columns: 1fr 2fr 0.5fr;
 
 
            > img {
                 width: 150px;
                 height: 100px;
+                grid-area: img;
             }
             .request-description-card{
-                width: 300px;
+                grid-area: description;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
             }
 
-            button{
-                position: absolute;
-                right: 0;
-                height: 100%;
-                width: 20%;
+            .buttons-request{
+                grid-area: button;
+                display: flex;
+                flex-direction: column;
+                gap:5px;
+                button{
+                    padding: 10px;
+                    border-radius: 10px;
+                    border: none;
+                    height: 100%;
+                    width: 100%;
+                    font-weight: 600;
+                   
+                    color: white;
+                    font-size: 16px;
+    
+    
+                    background-color: rgb(235, 140, 51);
+                }
+
+                & :nth-child(2n){
+                    background-color: rgb(220, 56, 56);
+                }
+            }
+          
+        }
+    }
+}
+
+@media screen and (max-width:660px) {
+    .cart-list{
+        .list{
+        
+            width: 80%;
+
+
+            >img{
+                width: 250px;
             }
         }
     }
+   
 }

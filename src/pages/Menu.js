@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect} from "react"
 
-import irmao from "../assets/images/irmão.png"
+
 
 import FoodSvgRed from "../assets/images/FoodLogoRed.svg"
 
 import { Cardapio } from "../services/Cardapio"
 
 import "../styles/Menu.scss"
-import { useRouteMatch } from 'react-router-dom'
+
 
 import { Card } from "../components/card"
 import { Menubar } from "../components/Menu-bar"
@@ -19,12 +19,12 @@ import { ModelRequest } from "../components/ModelRequest"
 
 export function Menu() {
 
-    const { request, setRequest } = useContext(AuthContext)
-    const { slide, contador, setSlide, setContador } = useContext(AuthContext)
+    const { request } = useContext(AuthContext)
+    const { contador, setSlide, setContador } = useContext(AuthContext)
     const { name, img, desc } = Cardapio[contador]
 
     useEffect(() => {
-        if (contador == 0) {
+        if (contador === 0) {
             setContador(Cardapio.length - 1)
             setSlide({
                 name: name,
@@ -43,7 +43,7 @@ export function Menu() {
     function nextSlide(i) {
 
 
-        if (contador == Cardapio.length - 1) {
+        if (contador === Cardapio.length - 1) {
             if (i > 0) {
                 setContador(1)
             } else {
