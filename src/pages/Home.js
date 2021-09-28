@@ -17,14 +17,15 @@ export function Home() {
     const { user, authenticationUser } = useAuth()
     async function handleConectionUser(event) {
         event.preventDefault()
-   
+
+        await authenticationUser()
 
         if (user) {
            return history.push("/Menu")
         }
 
       
-        await authenticationUser()
+       
       
     }
 

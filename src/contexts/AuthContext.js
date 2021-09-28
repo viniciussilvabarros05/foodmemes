@@ -2,6 +2,7 @@
 import React, { createContext, useEffect, useState } from "react"
 import { GoogleAuthProvider } from "firebase/auth"
 import { auth } from "../services/fireabase"
+import { Redirect } from "react-router"
 
 export const AuthContext = createContext({})
 
@@ -52,7 +53,11 @@ export function AuthContextProvider(props) {
     async function authenticationUser() {
         const provider = new GoogleAuthProvider()
 
-        const result = await auth.signInWithPopup(provider)
+        const result = await auth.signInWithPopup(provider).catch(error=>{
+            if (error){
+                return error
+            }
+        })
 
         if (result.user) {
 
@@ -72,6 +77,8 @@ export function AuthContextProvider(props) {
                 avatar: photoURL
             })
         }
+         
+        
     }
 
     return (
