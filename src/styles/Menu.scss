@@ -172,18 +172,24 @@
 
         .menu-responsive{
    
-            
+        
             visibility: hidden;
             display: none;
             width:120px;
             transition: height 0.2s, background 0.6s ;
-
+            span{
+              
+                padding: 2px;
+                background-color: #e55015;
+                border-radius: 15px;
+            
+            }
            
         }
 
         .content-logo-menu {
-            flex: 0.5;
-            height: 70px;
+            flex: 1;
+            height: 60px;
 
             display: flex;
             align-items: center;
@@ -204,7 +210,20 @@
             flex: 1;
             display: flex;
             align-items: center;
-            height: 100px;
+       
+         a{
+            padding: 0 15px  0 15px ;
+
+         }
+
+            span{
+                margin: 5px;
+                background-color: #e55015;
+                border-radius: 15px;
+                width: 15px;
+               
+            
+            }
         }
 
         a {
@@ -309,7 +328,7 @@
     }
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 980px) {
     .container {
 
        
@@ -326,6 +345,9 @@
             .menu-links{
                 display: none;
                 visibility: hidden;
+              
+              
+               
             }
 
             .menu-responsive{
@@ -343,8 +365,7 @@
                 
                &:hover{
 
-                img{
-                }
+               
                    height: 300px;
                    background-color: rgb(51, 49, 49);
                }

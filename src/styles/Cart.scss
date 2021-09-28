@@ -1,6 +1,27 @@
+
+
 .cart-list{
-    height:100vh;
+    min-height: 1000px;
     padding-bottom: 100px;
+
+    button{
+       height: 50px;
+       border: none;
+       padding:10px;
+       background-color: rgb(235, 140, 51);
+       color: white;
+       font-weight: 700;
+       border-radius: 10px;
+       font-size: 16px;
+
+       &:hover{
+           background-color: white;
+           border:2px solid rgb(235, 140, 51);
+           color: rgb(235, 140, 51);
+           transition: background 0.3s;
+
+       }
+    }
     .list{
         background-color: rgb(255, 255, 255);
         box-shadow: 5px 30px 20px 5px rgba(225, 122, 13, 0.3);
@@ -9,7 +30,7 @@
 
 
         width: 50%;
-        height: 100%;
+        
         margin: auto;
        
         display: flex;
@@ -26,11 +47,12 @@
         }
 
         .card-cart{
+   
             display: grid;
             grid-gap:15px;
             cursor: default;
             width: 90%;
-            height: 100px;
+            box-sizing: border-box;
             animation: none;
             box-shadow: none;
 
@@ -41,17 +63,23 @@
             grid-template-columns: 1fr 2fr 0.5fr;
 
 
-           > img {
+            img {
                 width: 150px;
                 height: 100px;
                 grid-area: img;
+                
             }
+
+          
+          
             .request-description-card{
                 grid-area: description;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                
+             
             }
 
             .buttons-request{
@@ -59,23 +87,47 @@
                 display: flex;
                 flex-direction: column;
                 gap:5px;
+                box-sizing: border-box;
+
+
+
                 button{
-                    padding: 10px;
+                  
                     border-radius: 10px;
                     border: none;
-                    height: 100%;
-                    width: 100%;
+                    padding: 15px;
+                    box-sizing: border-box;
                     font-weight: 600;
-                   
+                    transition: background 0.3s;
                     color: white;
                     font-size: 16px;
+                    height: 50px;
+                    width: 150px;
     
     
                     background-color: rgb(235, 140, 51);
+                    &:hover{
+                        border: 2px solid rgb(235, 140, 51);
+           
+                        background-color: white;
+                        color: rgb(235, 140, 51);
+                        box-sizing: border-box;
+                    }
+    
                 }
-
+            
                 & :nth-child(2n){
                     background-color: rgb(220, 56, 56);
+                  
+                  
+                 
+                    &:hover{
+                        box-sizing: border-box;
+                        border: 2px solid rgb(220,56,56);
+       
+                        background-color: white;
+                        color: rgb(220,56,56);
+                    }
                 }
             }
           
@@ -83,7 +135,7 @@
     }
 }
 
-@media screen and (max-width:660px) {
+@media screen and (max-width:900px) {
     .cart-list{
         .list{
         
@@ -93,6 +145,17 @@
             >img{
                 width: 250px;
             }
+
+            .card-cart{
+               display: flex;
+               height: 30%;
+               flex-direction: column;  
+
+               .buttons-request{
+                   width: 50vw;
+                   align-items: center;
+               }
+                  }
         }
     }
    

@@ -7,16 +7,16 @@ export const AuthContext = createContext({})
 
 export function AuthContextProvider(props) {
 
-    const [user, setUser] = useState()
+    const [user, setUser] = useState() //Setando o usuário logado
 
-    const [contador, setContador] = useState(1)
-
-
-    const [slide, setSlide] = useState({})
-
-    const [request, setRequest] = useState(false)
+    const [contador, setContador] = useState(1) // Contador do slide para o index
 
 
+    const [slide, setSlide] = useState({}) // Criando estado de slide para pegar informações por todas as páginas
+
+    const [request, setRequest] = useState(false) // Usando estado para definir se o model será mostrado ou não
+
+    const [order, setOrder] = useState([])
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {
@@ -82,7 +82,9 @@ export function AuthContextProvider(props) {
             setContador,
             setSlide,
             request,
-            setRequest
+            setRequest,
+            order,
+            setOrder
         }}>
             {props.children}
         </AuthContext.Provider>

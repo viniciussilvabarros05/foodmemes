@@ -6,13 +6,15 @@ import FoodSvg from "../assets/images/Food_Memes.svg"
 import github from "../assets/images/github.png"
 import linkedin from "../assets/images/linkedin.png"
 import Logo from '../assets/images/Menu.png'
+import { useContext } from "react"
+import { AuthContext } from "../contexts/AuthContext"
 
 export function Menubar() {
 
 
     let actived = false
   
-
+    const {order}= useContext(AuthContext)
 
 
     return (<div>
@@ -64,7 +66,7 @@ export function Menubar() {
 
                    }} 
                    
-                   className={ !actived? "menu-responsive": ""}
+                   className={ `"" ${!actived? "menu-responsive" : ""}`}
                    
                    >
                     <img src = {Logo}/>
@@ -72,7 +74,7 @@ export function Menubar() {
                         <Link to="/">HOME</Link>
                         <Link to="/Menu">MENU</Link>
                         <Link to="/contatos">CONTATOS</Link>
-                        <Link to="/carrinho">CARRINHO</Link>
+                        <Link to="/carrinho"> <span>{order.length} </span>CARRINHO</Link>
                         <Link to="/pedidos">PEDIDOS</Link>
                     </div>
 
@@ -82,7 +84,7 @@ export function Menubar() {
                     <Link to="/">HOME</Link>
                     <Link to="/Menu">MENU</Link>
                     <Link to="/contatos">CONTATOS</Link>
-                    <Link to="/carrinho">CARRINHO</Link>
+                    <Link to="/carrinho"><span>{order.length} </span> CARRINHO</Link>
                     <Link to="/pedidos">PEDIDOS</Link>
                 </div>
 
