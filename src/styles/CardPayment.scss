@@ -67,11 +67,28 @@
         }
 
         button{
+            position:absolute;
+            bottom: 100px;
+            height: 50px;
+            width: 40vh;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+            background-color: rgb(101, 233, 101);
+            transition: filter 0.3s;
+
+            &:hover{
+              filter: brightness(0.9);
+            }
+        }
+
+        button:nth-child(2n){
           
             position: absolute;
             bottom: 6px;
             height:50px;   
-            width: 20vh;
+           
             border: none;
             background-color: red;
             color: white;      

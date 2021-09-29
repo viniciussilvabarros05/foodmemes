@@ -52,7 +52,7 @@ const {setRequest,user, order,valueItem} = useContext(AuthContext)
               
           
              
-
+            <button>PAGAR</button>
             <button onClick = {()=>setRequest(false)}>CANCELAR</button>
           </div>
         </div>
