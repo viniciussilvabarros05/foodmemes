@@ -1,9 +1,24 @@
+.blur-payment-view{
+    .cart-list{
+        filter: blur(5px);
+     }
 
+     .content-contacts{
+         filter: blur(5px);
+     }
+     .content-bar{
+         filter: blur(5px);
+     }
 
+     footer{
+         filter: blur(5px);
+     }
+}
+    
 .cart-list{
     min-height: 1000px;
     padding-bottom: 100px;
-
+    transition: filter 0.5s;
     button{
        height: 50px;
        border: none;

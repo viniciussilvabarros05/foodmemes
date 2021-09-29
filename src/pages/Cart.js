@@ -6,12 +6,12 @@ import { Payment } from "../components/Payment";
 import { AuthContext } from "../contexts/AuthContext";
 export function Cart() {
 
-    const { order, setOrder } = useContext(AuthContext)
+    const { request, order, setOrder, setRequest, setValueItem} = useContext(AuthContext)
 
 
     return (
 
-        <div className="container">
+        <div className={`container ${request? "blur-payment-view": ""}`}>
             <Menubar></Menubar>
 
             <div className="cart-list">
@@ -30,7 +30,7 @@ export function Cart() {
 
                                     <img src={itemOrder.img} />
 
-                                    <div className="request-description-card">
+                                    <div  className="request-description-card">
                                         <div>{index}</div>
                                         <div>{itemOrder.name}</div>
                                         <div>Valor: {itemOrder.value}</div>
@@ -38,7 +38,15 @@ export function Cart() {
                                     </div>
                               
                                 <div className="buttons-request">
-                                    <button >CONFIRMAR</button>
+                                    <button index = {index} onClick = {
+                                        (event)=>{
+                                            const  id = event.target.getAttribute("index")
+                                            setRequest(true)
+                                            setValueItem(id)
+
+                                        
+                                        }
+                                    } >CONFIRMAR</button>
                                     <button onClick={() => setOrder(order.filter(item => item.id !== index))}>CANCELAR</button>
                                 </div>
 
@@ -56,7 +64,7 @@ export function Cart() {
                 <h1>Aqui está o footer</h1>
             </footer>
             
-            {/* <Payment></Payment> */}
+            {request? <Payment></Payment>: ""}
         </div>
 
 

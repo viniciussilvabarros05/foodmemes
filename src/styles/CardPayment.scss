@@ -1,3 +1,93 @@
-.card-payment{
-    background-color: white;
+.modelPayment {
+    background-color: rgba(41, 41, 39, 0.474);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+ img{
+     border-radius: 50px;
+ }
+    .card-payment {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        background-color: white;
+        color: rgb(29, 216, 29);
+        height: 80%;
+        width: 50%;
+
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+                p{
+                    line-height: 1px;
+                    font-size: 12px;
+                    padding: 0;
+                    margin: 0;
+                    color: red;
+                }
+            input{
+                box-sizing: border-box;
+                height: 50px;
+                width: 100%;
+                padding-left: 10px;
+                border: none;
+                font-weight: 600;
+                background-color: rgba(160, 210, 223, 0.255);
+            }
+            select {
+                width: 150px;
+                height: 40px;
+                font-size: 16px;
+                font-weight: 600;
+                border: none;
+                color: rgb(255, 255, 255);
+                background-color: rgb(101, 233, 101);
+                padding-left: 10px;
+
+                option {
+                    background-color: white;
+                    color: black;
+                    font-size: 16px;
+                    font-weight: 600;
+                    border: none;
+                    color: rgb(255, 255, 255);
+                    background-color: rgb(101, 233, 101);
+                 
+                }
+            }
+        }
+
+        button{
+          
+            position: absolute;
+            bottom: 6px;
+            height:50px;   
+            width: 20vh;
+            border: none;
+            background-color: red;
+            color: white;      
+           
+         
+        }
+    }
+
+}
+
+@media  screen and(max-width: 400px) {
+    .modelPayment{
+        .card-payment{
+            width: 90%;
+        }
+        
+    }
+   
 }

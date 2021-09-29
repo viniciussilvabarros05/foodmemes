@@ -14,7 +14,7 @@ export function Menubar() {
 
     let actived = false
   
-    const {order}= useContext(AuthContext)
+    const {order,user}= useContext(AuthContext)
 
 
     return (<div>
@@ -86,6 +86,7 @@ export function Menubar() {
                     <Link to="/contatos">CONTATOS</Link>
                     <Link to="/carrinho"><span>{order.length} </span> CARRINHO</Link>
                     <Link to="/pedidos">PEDIDOS</Link>
+                   <img src ={user.avatar}/>
                 </div>
 
 

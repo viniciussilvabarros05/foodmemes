@@ -7,7 +7,7 @@ import { Redirect } from "react-router"
 export const AuthContext = createContext({})
 
 export function AuthContextProvider(props) {
-
+ const [valueItem, setValueItem] = useState(0)
     const [user, setUser] = useState() //Setando o usuário logado
 
     const [contador, setContador] = useState(1) // Contador do slide para o index
@@ -91,7 +91,9 @@ export function AuthContextProvider(props) {
             request,
             setRequest,
             order,
-            setOrder
+            setOrder,
+            valueItem,
+            setValueItem
         }}>
             {props.children}
         </AuthContext.Provider>
