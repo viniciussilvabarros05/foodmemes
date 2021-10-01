@@ -21,7 +21,7 @@ export function Menu() {
 
     const { request } = useContext(AuthContext)
     const { contador, setSlide, setContador } = useContext(AuthContext)
-    const { name, img, desc, value } = Cardapio[contador]
+    const { name, img, desc, value, Paymented } = Cardapio[contador]
 
     useEffect(() => {
         if (contador === 0) {
@@ -30,6 +30,7 @@ export function Menu() {
                 name: name,
                 img: img,
                 desc: desc,
+              
                 value: value
             })
         }
@@ -38,6 +39,7 @@ export function Menu() {
             name: name,
             img: img,
             desc: desc,
+           
             value: value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
             
         })

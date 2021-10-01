@@ -9,7 +9,7 @@
 html{
     position: relative;
 
-    background-color: rgba(250, 199, 145, 0.885);
+    background-color: rgb(240, 177, 118);
 }
 .container {
     
@@ -21,8 +21,8 @@ html{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 625px;
-        gap: 18px;
+        height: 325px;
+        
 
         img {
             height: 130%;
@@ -65,9 +65,9 @@ html{
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 625px;
+        height: 325px;
 
-        margin-bottom: 100px;
+        
 
         div {
             display: flex;
@@ -343,7 +343,7 @@ html{
 
        
         .Logo{
-            margin-top: 100px;
+           position: inherit;
         }
         .menu-bar{
             display: flex;

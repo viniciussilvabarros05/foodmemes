@@ -20,6 +20,7 @@ export function CardRequest() {
             name: name,
             desc: desc,
             img: img,
+            Paymented: false,
             value:value,
            
         }

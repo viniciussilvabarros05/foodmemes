@@ -1,12 +1,71 @@
-.requests-list{
 
-    display: flex;
-    height:100vh;
-    align-items: center;
-    justify-content: center;
 
-    .card-request{
-        animation: none;
-        width: 50%;
+.container{
+   
+    >h1{
+    
+        background-color: #3a3838;
+        padding: 15px;
+        color: white;
+     
+      border-radius: 50px 50px  0 0 ;
+     
     }
+    .requests-list{
+
+        min-height: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 50px;
+        border-radius: 0 0 30px 30px;
+       
+        justify-content: center;
+        gap:5px;
+        height: 100%;
+        background-color: #3a3838;
+       
+        
+        margin-bottom: 200px;
+        .card-request{
+            grid-area: card-request;
+            
+            position: relative;
+            margin-top: 100px;
+            width: 15%;
+          
+            box-shadow: none;   
+              
+
+            .request-description-card{
+
+                
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+
+                img{
+                    width:100%;
+                  
+                }
+                div{
+                    width: 50%; 
+                }
+               div:nth-child(3n){
+                    background-color: #ff4800b8;
+                    border-radius: 15px;
+                    padding: 5px;
+                  
+                }
+            
+            }
+        }
+    
+    
+    }
+    
+
 }
+
+

@@ -7,7 +7,9 @@ import { Redirect } from "react-router"
 export const AuthContext = createContext({})
 
 export function AuthContextProvider(props) {
- const [valueItem, setValueItem] = useState(0)
+
+    const [listPaymented, setListPaymented] = useState([])
+    const [valueItem, setValueItem] = useState(0)
     const [user, setUser] = useState() //Setando o usuário logado
 
     const [contador, setContador] = useState(1) // Contador do slide para o index
@@ -53,8 +55,8 @@ export function AuthContextProvider(props) {
     async function authenticationUser() {
         const provider = new GoogleAuthProvider()
 
-        const result = await auth.signInWithPopup(provider).catch(error=>{
-            if (error){
+        const result = await auth.signInWithPopup(provider).catch(error => {
+            if (error) {
                 return error
             }
         })
@@ -77,23 +79,21 @@ export function AuthContextProvider(props) {
                 avatar: photoURL
             })
         }
-         
-        
+
+
     }
 
     return (
         <AuthContext.Provider value={{
-            user,
-            authenticationUser,
-            contador, slide,
-            setContador,
-            setSlide,
-            request,
-            setRequest,
-            order,
-            setOrder,
-            valueItem,
-            setValueItem
+            user, authenticationUser,
+            contador, setContador,
+            slide,setSlide,
+            request, setRequest,
+            order,setOrder,
+            valueItem,setValueItem,
+            listPaymented, setListPaymented
+
+
         }}>
             {props.children}
         </AuthContext.Provider>
