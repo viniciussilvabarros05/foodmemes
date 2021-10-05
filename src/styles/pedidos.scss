@@ -49,14 +49,16 @@
                     width:100%;
                   
                 }
-                div{
-                    width: 50%; 
+                p{
+                    min-width: 6vw;
+                     
+                  
                 }
-               div:nth-child(3n){
+               
+               p:nth-child(3n){
                     background-color: #ff4800b8;
                     border-radius: 15px;
-                    padding: 5px;
-                  
+            
                 }
             
             }

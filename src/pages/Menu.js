@@ -30,7 +30,7 @@ export function Menu() {
                 name: name,
                 img: img,
                 desc: desc,
-              
+                quant: 1,
                 value: value
             })
         }
@@ -39,7 +39,7 @@ export function Menu() {
             name: name,
             img: img,
             desc: desc,
-           
+            quant: 1,
             value: value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
             
         })

@@ -1,35 +1,91 @@
-import React, { useContext} from "react"
+import React, { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 
 import "../styles/RequestCard.scss"
 
 export function CardRequest() {
-    const { setRequest, order, setOrder} = useContext(AuthContext)
-    
+    const { setRequest, order } = useContext(AuthContext)
 
-    const { slide } = useContext(AuthContext)
 
-    function SendRequestToCart(event){
+    const { slide, setSlide } = useContext(AuthContext)
 
-        event.preventDefault()
 
-        const {name, value, img, desc, id} = slide
 
-        const itemOrder ={
+    function incrementQuant() {
+
+        const { name, value, img, desc, id, quant } = slide
+
+
+
+        const increment = {
             id: id,
             name: name,
             desc: desc,
             img: img,
             Paymented: false,
-            value:value,
-           
+            quant: quant + 1,
+            value: value,
+
+        }
+        setSlide(increment)
+       
+    }
+
+    function decrementQuant() {
+
+        const { name, value, img, desc, id, quant } = slide
+
+        if (quant == 1) {
+            return
+        }
+
+        const increment = {
+            id: id,
+            name: name,
+            desc: desc,
+            img: img,
+            Paymented: false,
+            quant: quant - 1,
+            value: value,
+
+        }
+        setSlide(increment)
+    }
+    function TotalValue(){
+
+        const Total = slide.value.replace(/\D+/g,"") * slide.quant/ 100
+
+
+        return Total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+   
+    }
+
+    function SendRequestToCart(event) {
+
+        event.preventDefault()
+
+        const { name, img, desc, id, quant } = slide
+
+
+
+        const itemOrder = {
+            id: id,
+            name: name,
+            desc: desc,
+            img: img,
+            Paymented: false,
+            quant: quant,
+            value: TotalValue(),
+
         }
 
         order.push(itemOrder)
         setRequest(false)
-        
+
     }
-    
+
+
+
     return (
         <div className="Requestcard">
             <img src={slide.img} />
@@ -38,20 +94,20 @@ export function CardRequest() {
 
             <form>
                 <div className="counter">
-                    <a>-</a>
-                    <p>0</p>
-                    <a>+</a>
+                    <a onClick={decrementQuant}>-</a>
+                    <p>{slide.quant}</p>
+                    <a onClick={incrementQuant}>+</a>
                 </div>
 
-                <div className="total"> <p>Valor: {slide.value}</p></div>
+                <div className="total"> <p>Valor: {TotalValue()}</p></div>
 
 
 
                 <div className="description-card"><h3> {slide.desc}</h3></div>
 
 
-                <button onClick = {SendRequestToCart}>ADICIONAR AO CARRINHO</button>
-                <a onClick={()=>{setRequest(false)}} className = "button-cancel">Cancelar Pedido</a>
+                <button onClick={SendRequestToCart}>ADICIONAR AO CARRINHO</button>
+                <a onClick={() => { setRequest(false) }} className="button-cancel">Cancelar Pedido</a>
             </form>
 
 

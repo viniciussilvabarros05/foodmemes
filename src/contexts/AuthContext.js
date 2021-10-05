@@ -2,14 +2,14 @@
 import React, { createContext, useEffect, useState } from "react"
 import { GoogleAuthProvider } from "firebase/auth"
 import { auth } from "../services/fireabase"
-import { Redirect } from "react-router"
+
 
 export const AuthContext = createContext({})
 
 export function AuthContextProvider(props) {
 
     const [listPaymented, setListPaymented] = useState([])
-    const [valueItem, setValueItem] = useState(0)
+    const [valueItem, setValueItem] = useState("")
     const [user, setUser] = useState() //Setando o usuário logado
 
     const [contador, setContador] = useState(1) // Contador do slide para o index
@@ -20,6 +20,7 @@ export function AuthContextProvider(props) {
     const [request, setRequest] = useState(false) // Usando estado para definir se o model será mostrado ou não
 
     const [order, setOrder] = useState([])
+   
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(user => {
             if (user) {

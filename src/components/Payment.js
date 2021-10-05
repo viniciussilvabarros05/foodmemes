@@ -1,4 +1,4 @@
-import userEvent from "@testing-library/user-event"
+
 import React, { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 import "../styles/CardPayment.scss"
@@ -6,18 +6,45 @@ import "../styles/CardPayment.scss"
 export function Payment(props) {
 
 
+
   const { setRequest, user, order, valueItem, setOrder, listPaymented, setListPaymented } = useContext(AuthContext)
 
-  function pushItemPaymented(i) {
+  function PriceTotal(total, num) {
+    return total + num
+  }
+
+  
+  
+  
+  function ConfirmAll() {
+    const arrayPrice = []
+
+    order.forEach(item => {
+      let value = parseInt(item.value.replace(/\D+/g, "") / 100)
+      arrayPrice.push(value)
+    })
 
 
-    listPaymented.push(order[i])
-    setOrder(order.filter(item => item.id !== i + 1))
 
-    console.log(order)
+    setRequest(true)
+    return (arrayPrice.reduce(PriceTotal).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }))
+
 
 
   }
+
+
+  function pushItemPaymented(i) {
+  
+      listPaymented.push(order[i])
+      setRequest(false)
+      setOrder(order.filter(item => item.id !== i+1))
+
+    
+
+  }
+
+
   return (
     <div onClick={
       (event) => {
@@ -32,7 +59,7 @@ export function Payment(props) {
       <div className="card-payment">
         <h1>Pagamento</h1>
 
-        <form>
+        <form readOnly>
           <label>Escolha a forma de pagamento: </label>
           <select >
             <option>
@@ -58,18 +85,21 @@ export function Payment(props) {
           <input type="text" value="0000-0000-000-00"></input>
 
           <input type="text" value={user.name}></input>
-          <h1>Valor total: {order[valueItem - 1].value}</h1>
-          <p>atenção, não é necessário colocar realmente as informações</p>
+          <h1>Valor total: {!valueItem ? ConfirmAll() : order[valueItem - 1].value}</h1>
+          <p>atenção, não é necessário colocar realmente suas informações</p>
         </form>
 
 
 
-        <button onClick={() => {
-          pushItemPaymented(valueItem - 1)
-
-          setRequest(false)
-
-
+        <button onClick={ () => {
+          if (valueItem) {
+            pushItemPaymented(valueItem - 1)
+          } else {
+             listPaymented.push(...order)
+            setRequest(false)
+            setOrder([])
+         
+          }
         }}>PAGAR</button>
 
 

@@ -6,7 +6,7 @@ import { AuthContext } from "../contexts/AuthContext";
 
 export function Requests() {
 
-    const { order, setOrder, listPaymented } = useContext(AuthContext)
+    const {listPaymented } = useContext(AuthContext)
     let dataAtual
     let data = new Date();
     let dia = String(data.getDate()).padStart(2, '0');
@@ -31,8 +31,8 @@ export function Requests() {
                                
                                 <img src={item.img} />
 
-                                <div>Valor:{item.value} </div>
-                                <div>{dataAtual} </div>
+                                <p>Valor: {item.value}</p>
+                                <p>{dataAtual}</p>
 
                             </div>
 
