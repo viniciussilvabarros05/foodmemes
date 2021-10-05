@@ -105,11 +105,21 @@
 
 @media screen and (max-width: 999px) {
     .Requestcard {
-        width: 70%;
+        width: 50%;
         div {
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+
+
+        .description-card {
+            padding: 40px;
+            color: rgb(0, 0, 0);
+            background-color: #ffffff;
+            box-shadow: 0 8px 15px 1px rgba(68, 45, 28, 0.268);
+            width: 50%;
         }
     }
 }
