@@ -6,12 +6,15 @@ import { Payment } from "../components/Payment";
 import { AuthContext } from "../contexts/AuthContext";
 export function Cart() {
 
-    const { request, order, setOrder, setRequest, setValueItem} = useContext(AuthContext)
+    const { request, order, setOrder, setRequest, setValueItem, valueItem } = useContext(AuthContext)
+
+
+ 
 
 
     return (
 
-        <div className={`container ${request? "blur-payment-view": ""}`}>
+        <div className={`container ${request ? "blur-payment-view" : ""}`}>
             <Menubar></Menubar>
 
             <div className="cart-list">
@@ -20,51 +23,58 @@ export function Cart() {
                     <img src={Carrinho} />
 
 
-                    {order.map((itemOrder, index) => {
+                    {
+                        order.map((itemOrder, index) => {
 
-                        index = index + 1
-                        itemOrder.id = index
-                        return (
-                            <div className="card card-cart">
+
+
+                            index = index + 1
+                            itemOrder.id = index
+
+
+                            return (
+                                <div key = {index} className="card card-cart">
 
 
                                     <img src={itemOrder.img} />
 
-                                    <div  className="request-description-card">
+                                    <div className="request-description-card">
                                         <div>{index}</div>
                                         <div>{itemOrder.name}</div>
                                         <div>Valor: {itemOrder.value}</div>
 
                                     </div>
-                              
-                                <div className="buttons-request">
-                                    <button index = {index} onClick = {
-                                        (event)=>{
-                                            const  id = event.target.getAttribute("index")
-                                            setRequest(true)
-                                            setValueItem(id)
 
-                                        
-                                        }
-                                    } >CONFIRMAR</button>
-                                    <button onClick={() => setOrder(order.filter(item => item.id !== index))}>CANCELAR</button>
+                                    <div className="buttons-request">
+                                        <button index={index} onClick={
+                                            (event) => {
+                                                const id = event.target.getAttribute("index")
+                                                setRequest(true)
+                                                setValueItem(id)
+                                                console.log(valueItem)
+
+                                            }
+                                        } >CONFIRMAR</button>
+                                        <button onClick={() => setOrder(order.filter(item => item.id !== index))}>CANCELAR</button>
+                                    </div>
+
                                 </div>
 
-                            </div>
-                        )
-                    })
+                            )
+
+                        })
                     }
 
 
                     <button>CONFIRMAR TODOS</button>
                 </div>
-                   
+
             </div>
             <footer>
                 <h1>Aqui está o footer</h1>
             </footer>
-            
-            {request? <Payment></Payment>: ""}
+
+            {request ? <Payment></Payment> : ""}
         </div>
 
 

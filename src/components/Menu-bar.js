@@ -6,13 +6,16 @@ import FoodSvg from "../assets/images/Food_Memes.svg"
 import github from "../assets/images/github.png"
 import linkedin from "../assets/images/linkedin.png"
 import Logo from '../assets/images/Menu.png'
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 
 export function Menubar() {
 
 
     let actived = false
+
+
+    
   
     const {order,user}= useContext(AuthContext)
 
