@@ -6,8 +6,9 @@ import FoodSvg from "../assets/images/Food_Memes.svg"
 import github from "../assets/images/github.png"
 import linkedin from "../assets/images/linkedin.png"
 import Logo from '../assets/images/Menu.png'
-import { useContext, useEffect } from "react"
+import { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext"
+import { auth } from "../services/fireabase"
 
 export function Menubar() {
 
@@ -15,9 +16,14 @@ export function Menubar() {
     let actived = false
 
 
-    
-  
-    const {order,user}= useContext(AuthContext)
+    function SignOut() {
+        auth.signOut()
+
+        document.location.reload()
+
+    }
+
+    const { order, user } = useContext(AuthContext)
 
 
     return (<div>
@@ -53,33 +59,36 @@ export function Menubar() {
 
 
             <div className="menu-bar">
-                
+
                 <div className="content-logo-menu">
                     <img src={FoodSvg} />
 
                 </div>
 
-                <div onClick = {()=>{
+                <div onClick={() => {
 
-                    if(actived === true) {
+                    if (actived === true) {
                         actived = false
-                    }else{
-                         actived = true
+                    } else {
+                        actived = true
                     }
 
-                   }} 
-                   
-                   className={ `"" ${!actived? "menu-responsive" : ""}`}
-                   
-                   >
-                    <img src = {Logo}/>
+                }}
+
+                    className={`"" ${!actived ? "menu-responsive" : ""}`}
+
+                >
+                    <img src={Logo} />
                     <div className="menu-links-responsive">
                         <Link to="/">HOME</Link>
                         <Link to="/Menu">MENU</Link>
                         <Link to="/contatos">CONTATOS</Link>
                         <Link to="/carrinho"> <span>{order.length} </span>CARRINHO</Link>
                         <Link to="/pedidos">PEDIDOS</Link>
+
+
                     </div>
+
 
                 </div>
 
@@ -89,10 +98,13 @@ export function Menubar() {
                     <Link to="/contatos">CONTATOS</Link>
                     <Link to="/carrinho"><span>{order.length} </span> CARRINHO</Link>
                     <Link to="/pedidos">PEDIDOS</Link>
-                   <img src ={user.avatar}/>
+
                 </div>
 
-
+                <div className="content-avatar">
+                    <img  src={user.avatar} />
+                    <button onClick={SignOut}>Logout</button>
+                </div>
             </div>
 
         </div>

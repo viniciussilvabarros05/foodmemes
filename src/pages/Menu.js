@@ -20,7 +20,7 @@ import { ModelRequest } from "../components/ModelRequest"
 export function Menu() {
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador } = useContext(AuthContext)
+    const { contador, setSlide, setContador,user } = useContext(AuthContext)
     const { name, img, desc, value, Paymented } = Cardapio[contador]
 
     useEffect(() => {
@@ -41,11 +41,11 @@ export function Menu() {
             desc: desc,
             quant: 1,
             value: value.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-            
+
         })
     }, [contador])
 
-
+   
     function nextSlide(i) {
 
 
@@ -61,20 +61,19 @@ export function Menu() {
 
     }
 
-
-
+  
     return (
         <>
             <div className="container">
 
                 <Menubar></Menubar>
-
+            
                 <div className="Logo">
-                    <div>
+                    <div >
+                       
                         <img src={FoodSvgRed} />
                     </div>
-                    {/* <img src={irmao} />
-                <h1>Irmão, tu tem que comer esse lanche</h1> */}
+             
 
                 </div>
 
