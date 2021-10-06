@@ -20,12 +20,14 @@ import { ModelRequest } from "../components/ModelRequest"
 export function Menu() {
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador,user } = useContext(AuthContext)
-    const { name, img, desc, value, Paymented } = Cardapio[contador]
+    const { contador, setSlide, setContador } = useContext(AuthContext)
+    const { name, img, desc, value } = Cardapio[contador]
 
     useEffect(() => {
         if (contador === 0) {
+
             setContador(Cardapio.length - 1)
+
             setSlide({
                 name: name,
                 img: img,
@@ -49,9 +51,9 @@ export function Menu() {
     function nextSlide(i) {
 
 
-        if (contador === Cardapio.length - 1) {
-            if (i > 0) {
-                setContador(1)
+        if (contador === Cardapio.length - 1) { //se contador chegar a ultima posição do cardápio
+            if (i > 0) { 
+                setContador(1) // a proxima posição volta será a primeira
             } else {
                 setContador(contador + i)
             }

@@ -13,7 +13,7 @@ import { auth } from "../services/fireabase"
 export function Menubar() {
 
 
-    let actived = false
+    let menuResponseActived = false
 
 
     function SignOut() {
@@ -67,15 +67,15 @@ export function Menubar() {
 
                 <div onClick={() => {
 
-                    if (actived === true) {
-                        actived = false
+                    if  (menuResponseActived === true) {
+                     menuResponseActived = false
                     } else {
-                        actived = true
+                     menuResponseActived = true
                     }
 
                 }}
 
-                    className={`"" ${!actived ? "menu-responsive" : ""}`}
+                    className={`"" ${ menuResponseActived ? "menu-responsive" : ""}`}
 
                 >
                     <img src={Logo} />
@@ -102,7 +102,7 @@ export function Menubar() {
                 </div>
 
                 <div className="content-avatar">
-                    <img  src={user.avatar} />
+                    <img src={user.avatar}/>
                     <button onClick={SignOut}>Logout</button>
                 </div>
             </div>

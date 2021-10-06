@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Menubar } from "../components/Menu-bar";
 import "../styles/Cart.scss"
 import Carrinho from "../assets/images/Carrinho.png"
@@ -6,7 +6,7 @@ import { Payment } from "../components/Payment";
 import { AuthContext } from "../contexts/AuthContext";
 export function Cart() {
     
-    const { request, order, setOrder, setRequest, setValueItem, valueItem, setListPaymented } = useContext(AuthContext)
+    const { request, order, setOrder, setRequest, setValueItem } = useContext(AuthContext)
 
 
 

@@ -7,7 +7,7 @@ export function Payment(props) {
 
 
 
-  const { setRequest, user, order, valueItem, setOrder, listPaymented, setListPaymented } = useContext(AuthContext)
+  const { setRequest, user, order, valueItem, setOrder, listPaymented } = useContext(AuthContext)
 
   function PriceTotal(total, num) {
     return total + num
