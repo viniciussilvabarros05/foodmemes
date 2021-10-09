@@ -75,7 +75,7 @@ export function Menubar() {
 
                 }}
 
-                    className={`"" ${ menuResponseActived ? "menu-responsive" : ""}`}
+                    className={`"" ${ !menuResponseActived? "menu-responsive" : ""}`}
 
                 >
                     <img src={Logo} />

@@ -6,15 +6,76 @@
         height: 90px;
     }
 }
-html{
+
+@keyframes AnimationRequest1 {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+
+    50% {
+         transform:scale(0.3) rotate(360deg);
+        top: 300px;
+        left: 0px;
+    }
+
+    100% {
+        top:300px;
+        left: 1500px;
+        transform:scale(0.3) rotate(360deg);
+        
+    }
+}
+@keyframes AnimationRequest2 {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+
+    50% {
+         transform:scale(0.3) rotate(360deg);
+        top: 300px;
+        left: 0px;
+    }
+
+    100% {
+        top:300px;
+        left: 1500px;
+        transform:scale(0.3) rotate(360deg);
+    }
+}
+@keyframes AnimationRequest3 {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+
+    50% {
+         transform:scale(0.3) rotate(360deg);
+        top: 300px;
+        left: 0px;
+    }
+
+    100% {
+        top:300px;
+        left: 1500px;
+        transform:scale(0.3) rotate(360deg);
+    }
+}
+
+
+
+
+
+
+html {
     position: relative;
 
     background-color: rgba(250, 199, 145, 0.885);
 }
 .container {
-    
     height: 100%;
-   
+
     .Logo {
         position: relative;
         display: flex;
@@ -23,6 +84,8 @@ html{
         justify-content: center;
         height: 625px;
         gap: 18px;
+        transition: animation 0.3s;
+        animation: AnimationRequest1 ease-in-out 0.9s infinite backwards;
 
         img {
             height: 130%;
@@ -66,7 +129,6 @@ html{
         flex-direction: column;
         align-items: center;
         height: 625px;
-     
 
         margin-bottom: 100px;
 
@@ -169,27 +231,22 @@ html{
         justify-content: space-around;
         background-color: #e55015c7;
         position: relative;
-     
+
         width: 90%;
         height: 30%;
         border-radius: 0 0 50px 50px;
 
-
-        .menu-responsive{
-   
-        
+        .menu-responsive {
             visibility: hidden;
             display: none;
-            width:120px;
-            transition: height 0.2s, background 0.6s ;
-            span{
-              
+
+            width: 120px;
+            transition: height 0.2s, background 0.6s;
+            span {
                 padding: 2px;
                 background-color: #e55015;
                 border-radius: 15px;
-            
             }
-           
         }
 
         .content-logo-menu {
@@ -207,7 +264,6 @@ html{
                 position: relative;
                 top: 25px;
                 height: 400%;
-            
             }
         }
 
@@ -216,60 +272,51 @@ html{
             display: flex;
             align-items: center;
             margin-right: 51px;
-            
-       
-         a{
-            padding: 0 15px  0 15px ;
-            
 
-         }
+            a {
+                padding: 0 15px 0 15px;
+            }
 
-            span{
+            span {
                 margin: 5px;
                 background-color: #e55015;
                 border-radius: 15px;
                 width: 15px;
-               
-            
             }
-         
-         
-
-    
         }
-        .content-avatar{
+        .content-avatar {
             width: 50px;
             border-radius: 50px;
             height: 50px;
             border: rgb(252, 117, 14) 3px solid;
             position: absolute;
-            top:10px;
+            top: 10px;
             right: 5px;
             cursor: pointer;
             overflow: hidden;
             transition: background 0.3s, height 0.3s;
-            &:hover{
+            &:hover {
                 height: 105px;
                 background-color: #3a3838;
             }
 
-            img{
+            img {
                 width: 50px;
-                
+
                 border-radius: 50px;
             }
-            button{
+            button {
                 width: 51px;
                 height: 50px;
                 cursor: pointer;
-                border-radius:50%;
+                border-radius: 50%;
                 background-color: #b41f1f;
                 color: white;
                 font-weight: 500;
                 border: rgb(255, 60, 60) 1px solid;
                 transition: filter 0.3s;
 
-                &:hover{
+                &:hover {
                     filter: saturate(1.5);
                 }
             }
@@ -358,49 +405,38 @@ html{
 
 @media screen and (max-width: 400px) {
     .container {
-
-        .Logo{
+        .Logo {
             height: 250px;
-            img{
+            img {
                 width: 100%;
-                margin-top:50px;
+                margin-top: 50px;
             }
         }
         .logo-page-end {
-           div{
-            height: 150px;   
-      
+            div {
+                height: 150px;
             }
         }
-
-      
     }
 }
 
 @media screen and (max-width: 980px) {
     .container {
-
-       
-        .Logo{
+        .Logo {
             margin-top: 100px;
         }
-        .menu-bar{
+        .menu-bar {
             display: flex;
-            .content-logo-menu{
+            .content-logo-menu {
                 flex: 1;
             }
 
-
-            .menu-links{
+            .menu-links {
                 display: none;
                 visibility: hidden;
-              
-              
-               
             }
 
-            .menu-responsive{
-                
+            .menu-responsive {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -408,62 +444,52 @@ html{
                 position: absolute;
                 right: 25px;
                 height: 80px;
-                top:0;
-               
-                overflow: hidden;
-                
-                
-               &:hover{
+                top: 0;
 
-               
-                   height: 300px;
-                   background-color: rgb(51, 49, 49);
-               }
-              
-               
-                img{
+                overflow: hidden;
+
+                &:hover {
+                    height: 300px;
+                    background-color: rgb(51, 49, 49);
+                }
+
+                img {
                     cursor: pointer;
                     position: absolute;
                     top: 15px;
-                    width:36px;
+                    width: 36px;
                     height: 50px;
                     margin-bottom: 50px;
                 }
 
-                .menu-links-responsive{
+                .menu-links-responsive {
                     margin-top: 80px;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
-                
-                    a{
+
+                    a {
                         width: 100%;
                         margin: 0;
-                        
-                         padding: 10px;
+
+                        padding: 10px;
                         border-radius: 0;
-                      
-                       
                     }
                 }
-        
             }
         }
-       
     }
 }
 
 @media screen and (max-width: 400px) {
-    .content-bar{
-        .menu-bar{
-            .content-logo-menu{
-               img{
-                width: 10px;
-              
-               }
+    .content-bar {
+        .menu-bar {
+            .content-logo-menu {
+                img {
+                    width: 10px;
+                }
             }
         }
-       
     }
 }
