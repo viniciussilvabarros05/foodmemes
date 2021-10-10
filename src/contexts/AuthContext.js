@@ -9,6 +9,7 @@ export const AuthContext = createContext({})
 export function AuthContextProvider(props) {
 
     const [listPaymented, setListPaymented] = useState([])
+    const [animation, setAnimationToCart] = useState('')
     const [valueItem, setValueItem] = useState("")
     const [user, setUser] = useState() //Setando o usuário logado
 
@@ -17,7 +18,7 @@ export function AuthContextProvider(props) {
 
     const [slide, setSlide] = useState({}) // Criando estado de slide para pegar informações por todas as páginas
 
-    const [request, setRequest] = useState(false) // Usando estado para definir se o model será mostrado ou não
+    const [request, setRequest] = useState('') // Usando estado para definir se o model será mostrado ou não
 
     const [order, setOrder] = useState([])
    
@@ -92,7 +93,8 @@ export function AuthContextProvider(props) {
             request, setRequest,
             order,setOrder,
             valueItem,setValueItem,
-            listPaymented, setListPaymented
+            listPaymented, setListPaymented,
+            animation, setAnimationToCart
 
 
         }}>

@@ -13,6 +13,7 @@ import { Card } from "../components/card"
 import { Menubar } from "../components/Menu-bar"
 import { AuthContext } from "../contexts/AuthContext"
 import { ModelRequest } from "../components/ModelRequest"
+import { Footer } from "../components/footer"
 
 
 
@@ -20,8 +21,12 @@ import { ModelRequest } from "../components/ModelRequest"
 export function Menu() {
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador } = useContext(AuthContext)
+    const { contador, setSlide, setContador, animation } = useContext(AuthContext)
     const { name, img, desc, value } = Cardapio[contador]
+    
+
+
+ 
 
     useEffect(() => {
         if (contador === 0) {
@@ -47,12 +52,13 @@ export function Menu() {
         })
     }, [contador])
 
-   
+
+
     function nextSlide(i) {
 
 
         if (contador === Cardapio.length - 1) { //se contador chegar a ultima posição do cardápio
-            if (i > 0) { 
+            if (i > 0) {
                 setContador(1) // a proxima posição volta será a primeira
             } else {
                 setContador(contador + i)
@@ -63,44 +69,48 @@ export function Menu() {
 
     }
 
-  
+
     return (
         <>
             <div className="container">
 
                 <Menubar></Menubar>
-            
-                <div className="Logo">
-                    <div >
-                       
-                        <img src={FoodSvgRed} />
-                    </div>
-             
 
+                <div className={`content-menu ${animation === 'animation' ? "Animation1" : ""}`}>
+
+
+                    <div className='Logo'>
+                        <div >
+
+                            <img src={FoodSvgRed} />
+                        </div>
+
+
+                    </div>
+
+                    <main>
+                        <span onClick={() => nextSlide(-1)}>&#10094;</span>
+                        <div className="slide">
+
+
+                            <Card>
+                            </Card>
+
+
+                        </div>
+                        <span onClick={() => nextSlide(1)}>&#10095;</span>
+                    </main>
+
+                    <div className="logo-page-end">
+                        <div>
+
+                        </div>
+                    </div>
                 </div>
 
-                <main>
-                    <span onClick={() => nextSlide(-1)}>&#10094;</span>
-                    <div className="slide">
-
-
-                        <Card>
-                        </Card>
-
-
-                    </div>
-                    <span onClick={() => nextSlide(1)}>&#10095;</span>
-                </main>
-
-                <div className="logo-page-end">
-                    <div>
-
-                    </div>
-                </div>
-
-                <footer>
-                    <h1>Aqui está o footer</h1>
-                </footer>
+   
+                <Footer></Footer>
+          
                 {request ? < ModelRequest></ModelRequest> : ""}
             </div>
 

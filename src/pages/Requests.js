@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Menubar } from "../components/Menu-bar";
 import "../styles/pedidos.scss"
 import "../styles/Cart.scss"
 import { AuthContext } from "../contexts/AuthContext";
-
+import { Footer } from "../components/footer"
 export function Requests() {
 
     const {listPaymented } = useContext(AuthContext)
@@ -47,9 +47,8 @@ export function Requests() {
 
             </div>
 
-            <footer>
-                <h1>Aqui está o footer</h1>
-            </footer>
+            <Footer>       
+            </Footer>
         </div>
     )
 }

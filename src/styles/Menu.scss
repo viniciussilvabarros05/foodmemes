@@ -6,7 +6,6 @@
         height: 90px;
     }
 }
-
 @keyframes AnimationRequest1 {
     0% {
         top: 0px;
@@ -14,55 +13,23 @@
     }
 
     50% {
-         transform:scale(0.3) rotate(360deg);
-        top: 300px;
+         transform:scale(0.3) ;
         left: 0px;
     }
 
     100% {
-        top:300px;
         left: 1500px;
-        transform:scale(0.3) rotate(360deg);
+        transform:scale(0.3) rotate(45deg);
         
     }
 }
-@keyframes AnimationRequest2 {
-    0% {
-        top: 0px;
-        left: 0px;
-    }
 
-    50% {
-         transform:scale(0.3) rotate(360deg);
-        top: 300px;
-        left: 0px;
-    }
 
-    100% {
-        top:300px;
-        left: 1500px;
-        transform:scale(0.3) rotate(360deg);
-    }
+
+.Animation1{
+    position: relative;
+    animation: AnimationRequest1 ease-in-out 1s 1 backwards;
 }
-@keyframes AnimationRequest3 {
-    0% {
-        top: 0px;
-        left: 0px;
-    }
-
-    50% {
-         transform:scale(0.3) rotate(360deg);
-        top: 300px;
-        left: 0px;
-    }
-
-    100% {
-        top:300px;
-        left: 1500px;
-        transform:scale(0.3) rotate(360deg);
-    }
-}
-
 
 
 
@@ -70,12 +37,14 @@
 
 html {
     position: relative;
-
+  
     background-color: rgba(250, 199, 145, 0.885);
 }
 .container {
     height: 100%;
-
+  .content-menu{
+      transform: scale(0.8);
+  }
     .Logo {
         position: relative;
         display: flex;
@@ -85,7 +54,7 @@ html {
         height: 625px;
         gap: 18px;
         transition: animation 0.3s;
-        animation: AnimationRequest1 ease-in-out 0.9s infinite backwards;
+      
 
         img {
             height: 130%;
@@ -123,14 +92,74 @@ html {
             bottom: 0;
         }
     }
+
+    main {
+        display: flex;
+        box-sizing: border-box;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      
+        margin: auto;
+        border: rgb(126, 61, 17) 50px solid;
+        background-color: rgb(211, 105, 34);
+        background-size: auto;
+        border-radius: 360px;
+        height: 500px;
+        width: 100%;
+        padding: 50px;
+        margin-bottom: 5%;
+       
+
+        
+
+       
+
+       
+
+        span {
+            width: 80px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            transition: background-color 0.3s;
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: #22202077;
+            }
+        }
+    }
+
+    footer {
+        background-color: #ff4800;
+        color: white;
+        font-size: 14px;
+        width: 100%;
+        position: absolute;
+       
+
+        img{
+            height: 300px;
+        }
+
+    }
+
+
     .logo-page-end {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 625px;
+        height: 325px;
+     
+       
 
-        margin-bottom: 100px;
+ 
 
         div {
             display: flex;
@@ -286,6 +315,7 @@ html {
         }
         .content-avatar {
             width: 50px;
+            z-index: 3;
             border-radius: 50px;
             height: 50px;
             border: rgb(252, 117, 14) 3px solid;
@@ -344,51 +374,7 @@ html {
         }
     }
 
-    main {
-        display: flex;
-        margin: auto;
-        box-sizing: border-box;
-        align-items: center;
-        justify-content: center;
-
-        background-color: rgb(211, 105, 34);
-        border: rgb(126, 61, 17) 50px solid;
-        background-size: auto;
-
-        border-radius: 360px;
-
-        height: 500px;
-        width: 100%;
-        padding: 50px;
-        margin-bottom: 5%;
-
-        span {
-            width: 80px;
-            height: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 30px;
-            transition: background-color 0.3s;
-
-            cursor: pointer;
-
-            &:hover {
-                background-color: #22202077;
-            }
-        }
-    }
-
-    footer {
-        background-color: #ff4800;
-        color: white;
-        font-size: 14px;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-    }
-
+  
     .ModelRequest {
         display: grid;
         place-items: center;
@@ -400,6 +386,20 @@ html {
         top: 0;
         right: 0;
         bottom: 0;
+    }
+
+    .contacts{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        width: 50%;
+        height: 500px;
+
+        div{
+            height: 400px;
+
+          
+        }
     }
 }
 
@@ -423,7 +423,7 @@ html {
 @media screen and (max-width: 980px) {
     .container {
         .Logo {
-            margin-top: 100px;
+    
         }
         .menu-bar {
             display: flex;
@@ -441,8 +441,10 @@ html {
                 flex-direction: column;
                 align-items: center;
                 visibility: visible;
+                z-index: 2;
+
                 position: absolute;
-                right: 25px;
+                right: 30px;
                 height: 80px;
                 top: 0;
 

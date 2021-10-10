@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 
 import "../styles/RequestCard.scss"
@@ -7,13 +7,15 @@ export function CardRequest() {
     const { setRequest, order } = useContext(AuthContext)
 
 
-    const { slide, setSlide } = useContext(AuthContext)
+    const { slide, setSlide, request, setAnimationToCart } = useContext(AuthContext)
 
 
+
+    const { name, value, img, desc, id, quant } = slide
 
     function incrementQuant() {
 
-        const { name, value, img, desc, id, quant } = slide
+
 
 
 
@@ -28,12 +30,12 @@ export function CardRequest() {
 
         }
         setSlide(increment)
-       
+
     }
 
     function decrementQuant() {
 
-        const { name, value, img, desc, id, quant } = slide
+
 
         if (quant == 1) {
             return
@@ -51,20 +53,20 @@ export function CardRequest() {
         }
         setSlide(increment)
     }
-    function TotalValue(){
+    function TotalValue() {
 
-        const Total = slide.value.replace(/\D+/g,"") * slide.quant/ 100
+        const Total = slide.value.replace(/\D+/g, "") * slide.quant / 100
 
 
         return Total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
-   
+
     }
 
     function SendRequestToCart(event) {
 
         event.preventDefault()
 
-        const { name, img, desc, id, quant } = slide
+
 
 
 
@@ -81,6 +83,14 @@ export function CardRequest() {
 
         order.push(itemOrder)
         setRequest(false)
+
+
+        setAnimationToCart('animation')
+
+        setTimeout(()=>setAnimationToCart(""),2000)
+
+
+
 
     }
 

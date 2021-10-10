@@ -4,19 +4,17 @@ import "../styles/Cart.scss"
 import Carrinho from "../assets/images/Carrinho.png"
 import { Payment } from "../components/Payment";
 import { AuthContext } from "../contexts/AuthContext";
+
+import { Footer } from "../components/footer";
 export function Cart() {
-    
+
     const { request, order, setOrder, setRequest, setValueItem } = useContext(AuthContext)
 
 
 
     function ConfirmAll() {
-    
         setValueItem("")
         setRequest(true)
-       
-       
-        
     }
 
 
@@ -55,13 +53,13 @@ export function Cart() {
 
                                     <div className="buttons-request">
                                         <button index={index} onClick={
-                                            
+
                                             (event) => {
-                                                const id = parseInt( event.target.getAttribute("index"))
+                                                const id = parseInt(event.target.getAttribute("index"))
                                                 setRequest(true)
                                                 setValueItem(id)
                                                 console.log(id)
-                                               
+
                                             }
                                         } >CONFIRMAR</button>
                                         <button onClick={() => setOrder(order.filter(item => item.id !== index))}>CANCELAR</button>
@@ -75,13 +73,15 @@ export function Cart() {
                     }
 
 
-                    <button onClick={ConfirmAll}>CONFIRMAR TODOS</button>
+                    <button onClick={()=>{
+                        if(order.length>0){
+                            ConfirmAll()
+                        }}}>CONFIRMAR TODOS</button>
                 </div>
 
             </div>
-            <footer>
-                <h1>Aqui está o footer</h1>
-            </footer>
+            <Footer>
+            </Footer>
 
             {request ? <Payment></Payment> : ""}
         </div>

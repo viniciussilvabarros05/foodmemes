@@ -1,10 +1,11 @@
 
 
 import instagram from "../assets/images/instagram.png"
-import { Link } from "react-router-dom"
-import FoodSvg from "../assets/images/Food_Memes.svg"
 import github from "../assets/images/github.png"
 import linkedin from "../assets/images/linkedin.png"
+import { Link } from "react-router-dom"
+import FoodSvg from "../assets/images/Food_Memes.svg"
+
 import Logo from '../assets/images/Menu.png'
 import { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext"
@@ -23,7 +24,7 @@ export function Menubar() {
 
     }
 
-    const { order, user } = useContext(AuthContext)
+    const { order, user, listPaymented } = useContext(AuthContext)
 
 
     return (<div>
@@ -84,7 +85,8 @@ export function Menubar() {
                         <Link to="/Menu">MENU</Link>
                         <Link to="/contatos">CONTATOS</Link>
                         <Link to="/carrinho"> <span>{order.length} </span>CARRINHO</Link>
-                        <Link to="/pedidos">PEDIDOS</Link>
+                        <Link Style={listPaymented.length === 0?"": 
+                   "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
 
 
                     </div>
@@ -97,7 +99,8 @@ export function Menubar() {
                     <Link to="/Menu">MENU</Link>
                     <Link to="/contatos">CONTATOS</Link>
                     <Link to="/carrinho"><span>{order.length} </span> CARRINHO</Link>
-                    <Link to="/pedidos">PEDIDOS</Link>
+                   <Link Style={listPaymented.length === 0?"": 
+                   "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
 
                 </div>
 
