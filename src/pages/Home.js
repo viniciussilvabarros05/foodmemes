@@ -6,14 +6,33 @@ import FoodSvg from "../assets/images/Food_Memes.svg"
 import Google from "../assets/images/google-icon.svg"
 import { Link } from "react-router-dom"
 import { useHistory } from "react-router-dom"
+import { AuthContext } from "../contexts/AuthContext"
+import { useContext } from "react"
+
 
 import { useAuth } from "../hooks/useAuth"
-
+import { db } from "../services/fireabase.js"
 export function Home() {
 
     const history = useHistory()
-      
-  
+    const { setCardapio } = useContext(AuthContext)
+    let cardapioGet = []
+
+
+
+    db.collection("Cardápio").doc("Lanches").get().then(doc => {
+        cardapioGet.push(...doc.data().Cardapio)
+
+
+    })
+
+
+    setTimeout(() => setCardapio(cardapioGet), 500)
+
+
+
+
+
     const { user, authenticationUser } = useAuth()
     async function handleConectionUser(event) {
         event.preventDefault()
@@ -21,12 +40,14 @@ export function Home() {
         await authenticationUser()
 
         if (user) {
-           return history.push("/Menu")
+
+            return history.push("/Menu")
+
         }
 
-      
-       
-      
+
+
+
     }
 
     return (
@@ -43,7 +64,7 @@ export function Home() {
                     </div>
 
                     <button className="login-google" onClick={handleConectionUser}> <img width="10px" src={Google} />Login with account google</button>
-                   {user ?<Link to ="/Menu">FAZER PEDIDO</Link>: "" } 
+                    {user ? <Link to="/Menu">FAZER PEDIDO</Link> : ""}
                 </form>
             </div>
         </div>

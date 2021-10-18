@@ -1,5 +1,3 @@
-
-
 import firebase from "firebase/compat/app"
 
 import "firebase/compat/auth"
@@ -7,12 +5,12 @@ import "firebase/compat/firestore"
 
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCOU2988e16EZZjv48mjnngJGXWtsVX0no",
-    authDomain: "foodmemes-e702c.firebaseapp.com",
-    projectId: "foodmemes-e702c",
-    storageBucket: "foodmemes-e702c.appspot.com",
-    messagingSenderId: "626036388327",
-    appId: "1:626036388327:web:ec42ca1732c26ddbf94d42"
+    apiKey: process.env.REACT_APP_API_KEY,
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+    projectId:process.env.REACT_APP_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+    messagingSenderId:  process.env.REACT_APP_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_APP_ID
 };
 
 firebase.initializeApp(firebaseConfig);

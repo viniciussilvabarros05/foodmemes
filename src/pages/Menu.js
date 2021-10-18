@@ -4,8 +4,6 @@ import React, { useContext, useEffect } from "react"
 
 import FoodSvgRed from "../assets/images/FoodLogoRed.svg"
 
-import { Cardapio } from "../services/Cardapio"
-import { db } from "../services/fireabase"
 import "../styles/Menu.scss"
 
 
@@ -20,19 +18,21 @@ import { Footer } from "../components/footer"
 
 export function Menu() {
 
-
-
-    
-    
+ 
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador, animation } = useContext(AuthContext)
+    const { contador, setSlide, setContador, animation, Cardapio } = useContext(AuthContext)
     const { name, img, desc, value } = Cardapio[contador]
 
+    
+    
+    
+    
 
 
 
     useEffect(() => {
+       
         if (contador === 0) {
 
             setContador(Cardapio.length - 1)

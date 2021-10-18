@@ -8,6 +8,7 @@ export const AuthContext = createContext({})
 
 export function AuthContextProvider(props) {
 
+    const [Cardapio, setCardapio] = useState([])
     const [listPaymented, setListPaymented] = useState([])
     const [animation, setAnimationToCart] = useState('')
     const [valueItem, setValueItem] = useState("")
@@ -87,6 +88,7 @@ export function AuthContextProvider(props) {
 
     return (
         <AuthContext.Provider value={{
+            Cardapio, setCardapio,
             user, authenticationUser,
             contador, setContador,
             slide,setSlide,
