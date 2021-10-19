@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import "../styles/Home.scss"
 import Logo from "../assets/images/logo.svg"
 import FoodSvg from "../assets/images/Food_Memes.svg"
@@ -15,32 +15,38 @@ import { db } from "../services/fireabase.js"
 export function Home() {
 
     const history = useHistory()
-    const { setCardapio } = useContext(AuthContext)
-    let cardapioGet = []
+    const { setCardapio, Cardapio } = useContext(AuthContext)
 
 
 
-    db.collection("Cardápio").doc("Lanches").get().then(doc => {
-        cardapioGet.push(...doc.data().Cardapio)
-
-
-    })
-
-
-    setTimeout(() => setCardapio(cardapioGet), 500)
 
 
 
 
 
     const { user, authenticationUser } = useAuth()
+
+    
     async function handleConectionUser(event) {
+       
         event.preventDefault()
 
         await authenticationUser()
 
-        if (user) {
+        db.collection("Cardápio").doc("Lanches").get().then(doc => {
+            setCardapio(doc.data().Cardapio)
+        
 
+            console.log(Cardapio)
+
+        })
+
+
+
+
+
+
+        if (user) {
             return history.push("/Menu")
 
         }
@@ -49,6 +55,17 @@ export function Home() {
 
 
     }
+    useEffect(()=>{
+        if(user){
+            db.collection("Cardápio").doc("Lanches").get().then(doc => {
+                setCardapio(doc.data().Cardapio)
+    
+            })
+        }
+
+    }, [user])
+
+ 
 
     return (
         <div className="page-home">

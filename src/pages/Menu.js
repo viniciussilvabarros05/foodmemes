@@ -12,27 +12,38 @@ import { Menubar } from "../components/Menu-bar"
 import { AuthContext } from "../contexts/AuthContext"
 import { ModelRequest } from "../components/ModelRequest"
 import { Footer } from "../components/footer"
+import { db } from "../services/fireabase"
 
 
 
 
 export function Menu() {
 
- 
+    
+   
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador, animation, Cardapio } = useContext(AuthContext)
+    const { contador, setSlide, setContador, animation, Cardapio,setCardapio } = useContext(AuthContext)
     const { name, img, desc, value } = Cardapio[contador]
+    // let cardapioGet = []
 
-    
-    
-    
+
+
+
+
+    // db.collection("Cardápio").doc("Lanches").get().then(doc => {
+    //     cardapioGet.push(...doc.data().Cardapio)
+
+    //     setCardapio(cardapioGet)
+    // })
+
+
     
 
 
 
     useEffect(() => {
-       
+
         if (contador === 0) {
 
             setContador(Cardapio.length - 1)
