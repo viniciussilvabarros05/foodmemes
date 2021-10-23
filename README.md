@@ -17,11 +17,13 @@ O projeto foi pensado como um meio de praticar mais do React e Firebase juntos. 
  
 # A PRESENTATION
 
- <a target="_blank" href="https://foodmemes-e702c.web.app/"></a>
+ <a target="_blank" href="https://foodmemes-e702c.web.app/">![FoodmemesGift](https://user-images.githubusercontent.com/58434465/138560240-ea50f417-4900-44b6-ae8d-53f7215dcda8.gif)
+</a>
 
-# ADMIN PAGE 
-
-<a></a>
+# HOW TO ORDER A FOOD?
+ <a target="_blank" href="https://foodmemes-e702c.web.app/">![FoodmemesGift4](https://user-images.githubusercontent.com/58434465/138560867-3af369fb-f275-4da5-8c03-01f436d67f81.gif)
+</a>
+<p> Como podem ver, o esquema é bem simples: Pedir no menu >> Ir ao carrinho confirmar >> ir aos pedidos para checar
 ## Autoria
 
 Vinícius Silva Barros
