@@ -23,20 +23,9 @@ export function Menu() {
    
 
     const { request } = useContext(AuthContext)
-    const { contador, setSlide, setContador, animation, Cardapio,setCardapio } = useContext(AuthContext)
+    const { contador, setSlide, setContador, animation, Cardapio } = useContext(AuthContext)
     const { name, img, desc, value } = Cardapio[contador]
-    // let cardapioGet = []
-
-
-
-
-
-    // db.collection("Cardápio").doc("Lanches").get().then(doc => {
-    //     cardapioGet.push(...doc.data().Cardapio)
-
-    //     setCardapio(cardapioGet)
-    // })
-
+    
 
     
 

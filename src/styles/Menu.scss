@@ -103,10 +103,10 @@ html {
         margin: auto;
         border: rgb(126, 61, 17) 50px solid;
         background-color: rgb(211, 105, 34);
-        background-size: auto;
+        
         border-radius: 360px;
         height: 500px;
-        width: 100%;
+        
         padding: 50px;
         margin-bottom: 5%;
        
@@ -408,7 +408,36 @@ html {
 }
 
 @media screen and (max-width: 400px) {
+    .content-menu{
+        margin-top: -200px;
+        .Logo{
+            div{
+                width: 120%;
+                img{
+                    width: 90%;
+                }
+            }
+            width: 100%;
+        }
+    }
+    .content-bar {
+        .menu-bar {
+            .content-logo-menu {
+                img {
+                    width: 10px;
+                }
+            }
+        }
+    }
     .container {
+
+        main{
+           span{
+               margin: 15px;
+           }
+          
+            
+        }
         .Logo {
             height: 250px;
             img {
@@ -419,6 +448,7 @@ html {
         .logo-page-end {
             div {
                 height: 150px;
+                width: 120%;
             }
         }
     }
@@ -471,6 +501,7 @@ html {
                 .menu-links-responsive {
                     margin-top: 80px;
                     display: flex;
+                    
                     flex-direction: column;
                     align-items: center;
                     justify-content: center;
@@ -488,14 +519,3 @@ html {
     }
 }
 
-@media screen and (max-width: 400px) {
-    .content-bar {
-        .menu-bar {
-            .content-logo-menu {
-                img {
-                    width: 10px;
-                }
-            }
-        }
-    }
-}

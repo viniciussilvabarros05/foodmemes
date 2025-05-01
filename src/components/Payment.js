@@ -1,11 +1,12 @@
 
 import React, { useContext } from "react"
+import { useHistory } from "react-router-dom"
 import { AuthContext } from "../contexts/AuthContext"
 import "../styles/CardPayment.scss"
 
 export function Payment(props) {
 
-
+  const history = useHistory()
 
   const { setRequest, user, order, valueItem, setOrder, listPaymented } = useContext(AuthContext)
 
@@ -94,10 +95,16 @@ export function Payment(props) {
         <button onClick={ () => {
           if (valueItem) {
             pushItemPaymented(valueItem - 1)
+            history.push("/pedidos")
           } else {
+            
              listPaymented.push(...order)
+             
             setRequest(false)
+           
             setOrder([])
+            
+
          
           }
         }}>PAGAR</button>

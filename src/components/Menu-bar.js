@@ -10,17 +10,21 @@ import Logo from '../assets/images/Menu.png'
 import { useContext } from "react"
 import { AuthContext } from "../contexts/AuthContext"
 import { auth } from "../services/fireabase"
-
+import { useHistory } from "react-router-dom"
 export function Menubar() {
 
 
     let menuResponseActived = false
+    const history = useHistory()
 
+    async function SignOut() {
 
-    function SignOut() {
-        auth.signOut()
-
+        history.push("/")
+        await auth.signOut()
+        
         document.location.reload()
+
+
 
     }
 
@@ -68,15 +72,15 @@ export function Menubar() {
 
                 <div onClick={() => {
 
-                    if  (menuResponseActived === true) {
-                     menuResponseActived = false
+                    if (menuResponseActived === true) {
+                        menuResponseActived = false
                     } else {
-                     menuResponseActived = true
+                        menuResponseActived = true
                     }
 
                 }}
 
-                    className={`"" ${ !menuResponseActived? "menu-responsive" : ""}`}
+                    className={`"" ${!menuResponseActived ? "menu-responsive" : ""}`}
 
                 >
                     <img src={Logo} />
@@ -85,8 +89,8 @@ export function Menubar() {
                         <Link to="/Menu">MENU</Link>
                         <Link to="/contatos">CONTATOS</Link>
                         <Link to="/carrinho"> <span>{order.length} </span>CARRINHO</Link>
-                        <Link Style={listPaymented.length === 0?"": 
-                   "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
+                        <Link Style={listPaymented.length === 0 ? "" :
+                            "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
 
 
                     </div>
@@ -99,13 +103,13 @@ export function Menubar() {
                     <Link to="/Menu">MENU</Link>
                     <Link to="/contatos">CONTATOS</Link>
                     <Link to="/carrinho"><span>{order.length} </span> CARRINHO</Link>
-                   <Link Style={listPaymented.length === 0?"": 
-                   "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
+                    <Link Style={listPaymented.length === 0 ? "" :
+                        "background-color:#ff4800;;box-shadow: 1px 1px 15px 5px #a3340883; animation:button  0.5s infinite linear alternate-reverse;"} to="/pedidos">PEDIDOS</Link>
 
                 </div>
 
                 <div className="content-avatar">
-                    <img src={user.avatar}/>
+                    <img src={user.avatar} />
                     <button onClick={SignOut}>Logout</button>
                 </div>
             </div>
